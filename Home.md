@@ -1,1 +1,1 @@
-# Lets see what we can reach, what we can learn, and how we can share our experience.
+Lets see what we can reach, what we can learn, and how we can share our experience.
