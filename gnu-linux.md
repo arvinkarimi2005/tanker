@@ -13,7 +13,7 @@
 `cat .ssh/id_rsa.pub | ssh user@remote 'cat >> .ssh/authorized_keys'`
 * set permision to directory and files 
 ` ssh user@remote "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"`
-
-or just do this
+ 
+ or just do this
 `ssh-copy-id user@remote`
 
