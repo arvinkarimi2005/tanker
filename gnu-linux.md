@@ -40,9 +40,12 @@
 #### ubuntu
 `sudo ufw allow {your_port}`
 #### centos
-`sudo semanage port -a -t ssh_port_t -p tcp {your_port}`
-`sudo firewall-cmd --permanent --zone=public --add-port={your_port}/tcp`
-`sudo firewall-cmd --reload`
+```
+sudo semanage port -a -t ssh_port_t -p tcp {your_port}
+sudo firewall-cmd --permanent --zone=public --add-port={your_port}/tcp
+sudo firewall-cmd --reload
+```
+
 4. restart sshd
 `sudo systemctl restart sshd`
 5. verify
