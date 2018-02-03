@@ -1,5 +1,58 @@
 [general](#general)
+# services and applications
 
+## shadowsocks
+### install shadowsock client
+#### ubuntu
+```
+sudo add-apt-repository ppa:hzwhuang/ss-qt5
+sudo apt-get update
+sudo apt-get install shadowsocks-qt5
+```
+
+## proxy terminal
+* add this bash to .bashrc or
+create file function.sh and add
+`source functions.sh` in .bashrc
+```bash
+#!/bin/bash
+
+assign_proxy(){
+  PROXY_ENV="http_proxy ftp_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY FTP_PROXY ALL_PROXY"
+  for envar in $PROXY_ENV
+  do
+     export $envar=$1
+  done
+  for envar in "no_proxy NO_PROXY"
+  do
+     export $envar=$2
+  done
+}
+
+clr_proxy(){
+   PROXY_ENV="http_proxy ftp_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY FTP_PROXY ALL_PROXY"
+   for envar in $PROXY_ENV
+   do
+      unset $envar
+   done
+}
+
+my_proxy(){
+#  read -p "ip: " -s  ip && echo -e " "
+#  read -p "Port " -s port &&  echo -e " "
+#  read -p "method" -s method && echo -e " "
+ PROXY='https://127.0.0.1:1080/';
+ if [[ ! -z "$1" ]]; then
+   PROXY=$1;
+ fi
+
+  echo $PROXY;
+  proxy_value="$PROXY"
+  no_proxy_value="localhost,127.0.0.1,LocalAddress,LocalDomain.com"
+  assign_proxy $proxy_value $no_proxy_value
+}
+
+```
 # users and groups
 ## add users
 * create user with home folder and login
