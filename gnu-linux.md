@@ -62,7 +62,7 @@ my_proxy(){
 `usermod -aG sudo username`
 ### centos
 `usermod -aG wheel username`
-### modify users 
+## modify users 
 * disable user
 ```bash 
 sudo passwd -l samual
