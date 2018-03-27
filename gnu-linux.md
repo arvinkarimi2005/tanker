@@ -133,7 +133,7 @@ sudo firewall-cmd --reload
 `ssh user@remote -p {your_port}`
 
 
-#others 
+# other useful commands
 * copy file to clipboard 
 ```bash
 xclip -selection clipboard .ssh/id_rsa.pub
