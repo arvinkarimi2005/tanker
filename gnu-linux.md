@@ -1,4 +1,33 @@
-[general](#general)
+# table of contents
+* [services and applications](#services-and-applications)
+      * [shadowsocks](#shadowsocks)
+         * [install shadowsock client](#install-shadowsock-client)
+            * [ubuntu](#ubuntu)
+      * [proxy terminal](#proxy-terminal)
+   * [disk](#disk)
+      * [scsi](#scsi)
+         * [lsscsi](#lsscsi)
+            * [ubuntu](#ubuntu-1)
+            * [centos](#centos)
+         * [list scsi devices](#list-scsi-devices)
+         * [list scsi hosts](#list-scsi-hosts)
+         * [rescan scsi](#rescan-scsi)
+   * [users and groups](#users-and-groups)
+      * [add users](#add-users)
+         * [ubuntu](#ubuntu-2)
+         * [centos](#centos-1)
+      * [modify users](#modify-users)
+      * [delete users](#delete-users)
+   * [networking](#networking)
+      * [firewall](#firewall)
+         * [centos](#centos-2)
+      * [ssh](#ssh)
+         * [SSH Login Without Password](#ssh-login-without-password)
+         * [change ssh port](#change-ssh-port)
+            * [ubuntu](#ubuntu-3)
+            * [centos](#centos-3)
+   * [other useful commands](#other-useful-commands)
+
 # services and applications
 
 ## shadowsocks
@@ -86,17 +115,17 @@ tail -f /var/log/message
 `sudo useradd -m username -p PASSWORD`
 * add user to sudo group on ubuntu
 ### ubuntu
-`usermod -aG sudo username`
+`usermod -aG sudo arvin`
 ### centos
-`usermod -aG wheel username`
-## modify users 
+`usermod -aG wheel arvin`
+## modify users
 * set expiry time for user
 ```bash
-sudo usermod --expiredate 1 samual
+sudo usermod --expiredate 1 arvin
 ```
 * lock user password ( disable ssh )
 ```bash
-sudo passwd -l samual
+sudo passwd -l arvin
 ```
 * enable user password
 ```bash
@@ -104,7 +133,7 @@ sudo passwd -u training
 ```
 * set expiry time for user password
 ```bash
-sudo passwd -e  2013-05-31 samual
+sudo passwd -e  2013-05-31 arvin
 ```
 * enable root user
 ```bash
@@ -114,9 +143,8 @@ passwd
 ## delete users
 * r option removes home directory
 ```bash
-userdel -r samual
+userdel -r arvin
 ```
->>>>>>> 18f49bd7d00d7db15938424d714bcc08f738b087
 # networking
 ## firewall
 ### centos
