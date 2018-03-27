@@ -131,3 +131,10 @@ sudo firewall-cmd --reload
 `ss -tnlp | grep ssh`
 6. Login
 `ssh user@remote -p {your_port}`
+
+
+#others 
+* copy file to clipboard 
+```bash
+xclip -selection clipboard .ssh/id_rsa.pub
+```
