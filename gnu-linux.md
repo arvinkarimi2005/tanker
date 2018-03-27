@@ -62,6 +62,7 @@ my_proxy(){
 `usermod -aG sudo username`
 ### centos
 `usermod -aG wheel username`
+### modify users 
 * disable user
 ```bash 
 sudo passwd -l samual
@@ -74,12 +75,12 @@ sudo passwd -u training
 ```bash
 sudo passwd -e  2013-05-31 samual
 ```
-
 * enable root user 
 ```bash
 su - 
 passwd 
 ```
+
 # networking
 ## firewall
 ### centos
