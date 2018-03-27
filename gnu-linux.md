@@ -80,7 +80,11 @@ sudo passwd -e  2013-05-31 samual
 su - 
 passwd 
 ```
-
+## delete users 
+* r option removes home directory 
+```bash
+userdel -r samual
+```
 # networking
 ## firewall
 ### centos
