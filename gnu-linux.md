@@ -53,18 +53,8 @@ my_proxy(){
 }
 
 ```
-# users and groups
-## add users
-* create user with home folder and login
-`sudo useradd -m username -p PASSWORD`
-* add user to sudo group on ubuntu
-### ubuntu
-`usermod -aG sudo username`
-### centos
-`usermod -aG wheel username`
 
 # disk
-
 ## scsi
 ### lsscsi
 #### ubuntu
@@ -75,7 +65,6 @@ cat /proc/scsi/scsi
 ```bash
 yum install lsscsi
 ```
-
 ### list scsi devices
 ```bash
 cat /proc/scsi/scsi
@@ -84,7 +73,6 @@ cat /proc/scsi/scsi
 ```bash
 ls /sys/class/scsi_host
 ```
-
 ### rescan scsi
 ```bash
 echo "- - -" > /sys/class/scsi_host/host#/scan
@@ -92,6 +80,43 @@ fdisk -l
 tail -f /var/log/message
 ```
 
+# users and groups
+## add users
+* create user with home folder and login
+`sudo useradd -m username -p PASSWORD`
+* add user to sudo group on ubuntu
+### ubuntu
+`usermod -aG sudo username`
+### centos
+`usermod -aG wheel username`
+## modify users 
+* set expiry time for user
+```bash
+sudo usermod --expiredate 1 samual
+```
+* lock user password ( disable ssh )
+```bash
+sudo passwd -l samual
+```
+* enable user password
+```bash
+sudo passwd -u training
+```
+* set expiry time for user password
+```bash
+sudo passwd -e  2013-05-31 samual
+```
+* enable root user
+```bash
+su -
+passwd
+```
+## delete users
+* r option removes home directory
+```bash
+userdel -r samual
+```
+>>>>>>> 18f49bd7d00d7db15938424d714bcc08f738b087
 # networking
 ## firewall
 ### centos
@@ -134,3 +159,10 @@ sudo firewall-cmd --reload
 `ss -tnlp | grep ssh`
 6. Login
 `ssh user@remote -p {your_port}`
+
+
+# other useful commands
+* copy file to clipboard
+```bash
+xclip -selection clipboard .ssh/id_rsa.pub
+```
