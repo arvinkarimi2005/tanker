@@ -62,7 +62,24 @@ my_proxy(){
 `usermod -aG sudo username`
 ### centos
 `usermod -aG wheel username`
+* disable user
+```bash 
+sudo passwd -l samual
+```
+* enable user
+```bash
+sudo passwd -u training
+```
+* set expiry time for user 
+```bash
+sudo passwd -e  2013-05-31 samual
+```
 
+* enable root user 
+```bash
+su - 
+passwd 
+```
 # networking
 ## firewall
 ### centos
