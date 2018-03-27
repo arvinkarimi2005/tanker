@@ -63,15 +63,19 @@ my_proxy(){
 ### centos
 `usermod -aG wheel username`
 ## modify users 
-* disable user
+* set expiry time for user
+```bash
+sudo usermod --expiredate 1 samual
+```
+* lock user password ( disable ssh )
 ```bash 
 sudo passwd -l samual
 ```
-* enable user
+* enable user password 
 ```bash
 sudo passwd -u training
 ```
-* set expiry time for user 
+* set expiry time for user password
 ```bash
 sudo passwd -e  2013-05-31 samual
 ```
