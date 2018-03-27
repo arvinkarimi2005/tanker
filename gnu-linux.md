@@ -63,6 +63,35 @@ my_proxy(){
 ### centos
 `usermod -aG wheel username`
 
+# disk
+
+## scsi
+### lsscsi
+#### ubuntu
+```bash
+cat /proc/scsi/scsi
+```
+#### centos
+```bash
+yum install lsscsi
+```
+
+### list scsi devices
+```bash
+cat /proc/scsi/scsi
+```
+### list scsi hosts
+```bash
+ls /sys/class/scsi_host
+```
+
+### rescan scsi
+```bash
+echo "- - -" > /sys/class/scsi_host/host#/scan
+fdisk -l
+tail -f /var/log/message
+```
+
 # networking
 ## firewall
 ### centos
