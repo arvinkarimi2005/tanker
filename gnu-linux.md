@@ -21,14 +21,14 @@
       * [install on centos](#install-on-centos)
       * [enable](#enable)
       * [pv ( LVMs physical volume )](#pv--lvms-physical-volume-)
-      * [create](#create)
-      * [list , display](#list--display)
+         * [create](#create)
+         * [list , display](#list--display)
       * [vg (volume group)](#vg-volume-group)
          * [create vg](#create-vg)
          * [list VGs or get vg details](#list-vgs-or-get-vg-details)
       * [lv ( logical volume )](#lv--logical-volume-)
          * [create lv in existing vg](#create-lv-in-existing-vg)
-      * [Display](#display)
+         * [Display](#display)
 * [users and groups](#users-and-groups)
    * [add users](#add-users)
       * [ubuntu](#ubuntu-2)
@@ -175,12 +175,12 @@ systemctl start lvm2-lvmetad.service
 systemctl start lvm2-lvmetad.socket
 ```
 ### pv ( LVMs physical volume )
-### create
+#### create
 pvcreate used to prepare a disk partition or a whole disk for use by LVM
 ```bash
 pvcreate /dev/sd
 ```
-### list , display
+#### list , display
 To get LVM's internal view and details, use LVM commands
 Lists : use the lvs and pvs commands with option --segments
 Detailed view: use the lvdisplay and pvdisplay commands with option -m
@@ -239,7 +239,7 @@ lvcreate -n lv_data1 --size 12G testvg
 -p{r|rw} : permision
 -M{y|n} : persistent
 
-### Display
+#### Display
 ```
 lvdisplay
 ```
