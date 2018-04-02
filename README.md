@@ -2,7 +2,7 @@ I want to use this Wiki as a playground and provide some quick solutions to diff
 The list below will growing up.
 
 Table Of Contents:
-* [gnu linux](gnu-linux.md)
+* [another](gnu-linux.md)
   * [disk](gnu-linux-disk.md)
   * [network](gnu-linux-network.md)
 * [git](git.md)
