@@ -1,12 +1,13 @@
 # Table of Contents:
-* [services and applications](#services-and-applications)
+* [file and directory manipulation](#file-and-directory-manipulation)
+   * [directories](#directories)
    * [files](#files)
+     * [search](#search)
      * [manipulate](#manipulate)
      * [read](#read)
    * [shadowsocks](#shadowsocks)
       * [install shadowsock client](#install-shadowsock-client)
          * [ubuntu](#ubuntu)
-* [proxy terminal](#proxy-terminal)
 * [users and groups](#users-and-groups)
    * [add users](#add-users)
       * [ubuntu](#ubuntu-2)
@@ -15,9 +16,76 @@
    * [delete users](#delete-users)
 * [other useful commands](#other-useful-commands)
 ___
-# services and applications
+# file and directory manipulation
+grep,find,locate
+tee
+cat,
 ## basic(gnu) tools
+### directories
+___
 ### files
+#### search
+1- grep (print lines matching a pattern)
+options :
+* -L : list not matched files
+* -l : list matched files
+* -c : count
+* -e : regex
+* -i : ingore case
+* -v : invert match
+* -n : show matched line number
+* -r : recursive
+* -w : word
+* -x : line
+```
+grep -r -n -c -e "[^gnu].*x" .
+```
+***
+2- find (search for files in a directory hierarchy - find is slow)
+options:
+* -type: (d: directory, f: file)
+* -name (-iname : ignore case)
+* -o or, -not (!)
+* -perm
+    * /a=x
+    * /u=r
+    * 0566
+    * sgid (2564)
+* -exec
+* -user, -group
+* -mtime (modified files by day), -atime (accessed files by day)
+* -cmin  (changed by minutes), -amin, -mmin
+* -size
+```bash
+find ./test -name 'abc*' ! -name '*.php'
+find ./test -iname "*.Php"
+find ./test -not -name "*.php"
+find -name '*.php' -o -name '*.txt'
+find . -type f ! -perm 0777
+find /home/bob/dir -type f -name *.log -size +10M -exec rm -f {} \;
+```
+***
+3- locate (find files by name)
+- locate does not check whether files found in database still exist. locate can never report files created after the most recent update of the relevant database.
+options:
+* -n : limit lines
+* -c : count
+* -i : ignore case
+‍‍‍‍‍‍```bash
+locate -i *text.txt*
+```
+* -S : review locate db
+* -d : change db path (-d [dbpath])
+
+- update db : updatedb
+files:
+* /etc/updatedb.conf
+* /var/lib/mlocate/mlocate.db
+
+* To create a private mlocate database as an user other than root, run
+```bash
+updatedb -l 0 -o db_file -U source_directory
+```
 #### manipulate
 1- tee (Copy standard input to each FILE, and also to standard output.)
 -a appends to file exisists
@@ -37,8 +105,9 @@ options:
 cat test test1
 cat -n test
 ```
+___
 2- more, less, sort
-  1- more (file perusal filter for crt viewing), less (opposite of more) 
+  1- more (file perusal filter for crt viewing), less (opposite of more)
   ```bash
   more file1
   tail -F /var/etc/nginx/access.logs | more
@@ -59,6 +128,7 @@ cat -n test
       sort -u file1
       ls -alh | sort > sorted.text
     ```
+___
 3- wc (count files or standard output)
 options:
 * -l : lines
@@ -68,15 +138,18 @@ options:
 ```bash
 wc -l file1
 ```
+---
 4-  tail (last line of files)
 -F follows and retry to connect
 ```bash
 tail -F -n 20 /var/log/nginx/access.log
 ```
+---
 5- head (output the first part of files)
 ```bash
 head -n 20 /var/log/nginx/access.log
 ```
+---
 6- split (split a file into pieces)
 * options
  -l : customize line (ex -l1200)
@@ -91,6 +164,7 @@ merge splited files
 ```bash
 cat Split_IS0_a* > Windows_Server.iso
 ```
+---
 7- join (join lines of two files on a common field)
 * 1- (field of first file)
 * 2- (field of second file)
@@ -106,6 +180,7 @@ specify a field separator for joining
 ```bash
 join -1 2 -2 3 -t , names.csv transactions.csv
 ```
+---
 8- paste (paste - merge lines of files)
 ```bash
 paste file1 file2
@@ -118,51 +193,4 @@ paste file1 file2
 sudo add-apt-repository ppa:hzwhuang/ss-qt5
 sudo apt-get update
 sudo apt-get install shadowsocks-qt5
-```
-___
-# users and groups
-## add users
-* create user with home folder and login
-`sudo useradd -m username -p PASSWORD`
-* add user to sudo group on ubuntu
-### ubuntu
-`usermod -aG sudo arvin`
-### centos
-`usermod -aG wheel arvin`
-## modify users
-* set expiry time for user
-```bash
-sudo usermod --expiredate 1 arvin
-```
-* lock user password ( disable ssh )
-```bash
-sudo passwd -l arvin
-```
-* enable user password
-```bash
-sudo passwd -u training
-```
-* set expiry time for user password
-```bash
-sudo passwd -e  2013-05-31 arvin
-```
-* enable root user
-```bash
-su -
-passwd
-```
-## delete users
-* r option removes home directory
-```bash
-userdel -r arvin
-```
-***
-# other useful commands
-* copy file to clipboard
-```bash
-xclip -selection clipboard .ssh/id_rsa.pub
-```
-* reconfigure keyboard layout
-```bash
-sudo dpkg-reconfigure keyboard-configuration
 ```
