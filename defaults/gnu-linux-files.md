@@ -8,12 +8,6 @@
    * [shadowsocks](#shadowsocks)
       * [install shadowsock client](#install-shadowsock-client)
          * [ubuntu](#ubuntu)
-* [users and groups](#users-and-groups)
-   * [add users](#add-users)
-      * [ubuntu](#ubuntu-2)
-      * [centos](#centos-1)
-   * [modify users](#modify-users)
-   * [delete users](#delete-users)
 * [other useful commands](#other-useful-commands)
 ___
 # file and directory manipulation
