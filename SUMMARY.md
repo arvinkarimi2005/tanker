@@ -5,6 +5,7 @@
   * [users and groups](defaults/gnu-linux-users.md)
 * tools
   * [git](tools/git.md)
+  * [shadowsocks](tools/shadowsocks.md)
 * shortcuts
   * [disk](shortcuts/gnu-linux-disk.md)
   * [network](shortcuts/gnu-linux-network.md)
